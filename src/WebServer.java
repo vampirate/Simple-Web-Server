@@ -30,7 +30,7 @@ public class WebServer {
 			System.out.println(path);
 			
 			PrintWriter out = new PrintWriter(connectSocket.getOutputStream());
-			File file = new File(path);
+			File file = new File("index.html");
 			if (!file.exists()) {
 				System.out.println("no file");
 			    out.println("HTTP/1.1 404");
@@ -38,7 +38,7 @@ public class WebServer {
 			} else {
 				System.out.println("yes file");
 				out.println("HTTP/1.1 200 OK");
-				out.println("Content-Type: html/text");
+				out.println("Content-Type: html");
 				out.println();
 				FileReader fr = new FileReader(file);
 				BufferedReader bfr = new BufferedReader(fr);
